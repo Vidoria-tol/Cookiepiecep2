@@ -1,139 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Jack the Hazard What Ifs</title>
-<style>
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #1e1e2f, #2c2c54);
-    color: white;
-    text-align: center;
-    padding: 50px;
-}
-h1 {
-    font-size: 3rem;
-}
-.subtitle {
-    color: #ff6666;
-    margin-bottom: 40px;
-}
-.joke-box {
-    background: rgba(255,255,255,0.1);
-    padding: 30px;
-    border-radius: 15px;
-    max-width: 800px;
-    margin: auto;
-    font-size: 1.2rem;
-    min-height: 120px;
-}
-button {
-    margin-top: 30px;
-    padding: 15px 30px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 30px;
-    background-color: #ff6666;
-    color: #1e1e2f;
-    cursor: pointer;
-}
-button:hover {
-    background-color: #ff4444;
-}
-footer {
-    margin-top: 50px;
-    opacity: 0.7;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What If…</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fdf6f0;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #e94e77;
+        }
+        button {
+            padding: 15px 25px;
+            margin-top: 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4a90e2;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #357ab8;
+        }
+        .quote {
+            margin-top: 40px;
+            font-size: 20px;
+            font-style: italic;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 <body>
+    <h1>What If…</h1>
+    <p>Click the button to reveal a “What If” thought.</p>
+    <button onclick="showQuote()">Reveal</button>
+    <div class="quote" id="quote"></div>
 
-<h1>Hurtful "What Ifs"</h1>
-<div class="subtitle">Emotional Chaos 💔</div>
+    <script>
+        const quotes = [
+            "What if I was just a chapter and you were my whole story?",
+            "What if you felt relief when I left?",
+            "What if I stayed longer than you ever wanted me to?",
+            "What if I mistook silence for peace?",
+            "What if you only loved me when it was easy?",
+            "What if I was fighting for something already gone?",
+            "What if you emotionally checked out before I noticed?",
+            "What if I kept watering a dead plant?",
+            "What if I apologized for things that weren’t my fault?",
+            "What if you never saw a future with me?",
+            "What if I built one anyway?",
+            "What if you liked being loved but not loving me?",
+            "What if I was just comfort, not commitment?",
+            "What if you were already over me while I was still trying?",
+            "What if I ignored my intuition because I wanted you?",
+            "What if I kept shrinking to fit your standards?",
+            "What if I gave you loyalty and you gave me uncertainty?",
+            "What if I kept choosing you while you kept choosing yourself?",
+            "What if I mistook potential for reality?",
+            "What if I was in love with who you could be?",
+            "What if I kept forgiving what I shouldn’t have?",
+            "What if you knew I’d always come back?",
+            "What if that made it easier to leave?",
+            "What if I confused mixed signals with depth?",
+            "What if you only wanted me when I pulled away?",
+            "What if I was addicted to the highs and ignored the lows?",
+            "What if you never lost sleep over losing me?",
+            "What if I lost mine every night?",
+            "What if I begged for clarity and got distance?",
+            "What if I called inconsistency 'complicated'?",
+            "What if you liked the chase but not the catch?",
+            "What if I was holding onto memories you don’t even remember?",
+            "What if I kept loving you after you stopped loving me?",
+            "What if you never fought because you didn’t care enough to?",
+            "What if I thought effort meant love?",
+            "What if you thought bare minimum was enough?",
+            "What if I ignored how lonely I felt next to you?",
+            "What if I stayed because I feared starting over?",
+            "What if I was loyal to someone who wasn’t loyal to the idea of us?",
+            "What if I taught you how to love someone else better?",
+            "What if I was practice and they’re the real thing?",
+            "What if you only realized my value after I was gone?",
+            "What if by then I don’t want you anymore?",
+            "What if I romanticized breadcrumbs?",
+            "What if I deserved a full meal?",
+            "What if I kept proving my love hoping you would match it?",
+            "What if you never planned to?",
+            "What if I was holding onto your words instead of your actions?",
+            "What if the truth was in what you didn’t do?",
+            "What if I was the only one afraid to lose us?",
+            "What if you were never afraid at all?",
+            "What if I blamed myself for your lack of effort?",
+            "What if I thought being patient meant being strong?",
+            "What if it just meant I was hurting quietly?",
+            "What if I loved you louder than you ever loved me?",
+            "What if you never intended to stay through the hard parts?",
+            "What if I would have?",
+            "What if I lost myself trying to keep you?",
+            "What if I find myself after losing you?",
+            "What if walking away hurts now but saves me later?",
+            "What if this heartbreak is protection?",
+            "What if I finally choose me?"
+        ];
 
-<div class="joke-box" id="jokeBox">
-Click the button to feel a what if…
-</div>
-
-<button onclick="newJoke()">Reveal What If</button>
-
-<footer>
-© 2026 Emotional Thoughts
-</footer>
-
-<script>
-
-const whatIF = [
-"What if I was just a chapter and you were my whole story?",
-"What if you felt relief when I left?",
-"What if I stayed longer than you ever wanted me to?",
-"What if I mistook silence for peace?",
-"What if you only loved me when it was easy?",
-"What if I was fighting for something already gone?",
-"What if you emotionally checked out before I noticed?",
-"What if I kept watering a dead plant?",
-"What if I apologized for things that weren’t my fault?",
-"What if you never saw a future with me?",
-"What if I built one anyway?",
-"What if you liked being loved but not loving me?",
-"What if I was just comfort, not commitment?",
-"What if you were already over me while I was still trying?",
-"What if I ignored my intuition because I wanted you?",
-"What if I kept shrinking to fit your standards?",
-"What if I gave you loyalty and you gave me uncertainty?",
-"What if I kept choosing you while you kept choosing yourself?",
-"What if I mistook potential for reality?",
-"What if I was in love with who you could be?",
-"What if I kept forgiving what I shouldn’t have?",
-"What if you knew I’d always come back?",
-"What if that made it easier to leave?",
-"What if I confused mixed signals with depth?",
-"What if you only wanted me when I pulled away?",
-"What if I was addicted to the highs and ignored the lows?",
-"What if you never lost sleep over losing me?",
-"What if I lost mine every night?",
-"What if I begged for clarity and got distance?",
-"What if I called inconsistency 'complicated'?",
-"What if you liked the chase but not the catch?",
-"What if I was holding onto memories you don’t even remember?",
-"What if I kept loving you after you stopped loving me?",
-"What if you never fought because you didn’t care enough to?",
-"What if I thought effort meant love?",
-"What if you thought bare minimum was enough?",
-"What if I ignored how lonely I felt next to you?",
-"What if I stayed because I feared starting over?",
-"What if I was loyal to someone who wasn’t loyal to the idea of us?",
-"What if I taught you how to love someone else better?",
-"What if I was practice and they’re the real thing?",
-"What if you only realized my value after I was gone?",
-"What if by then I don’t want you anymore?",
-"What if I romanticized breadcrumbs?",
-"What if I deserved a full meal?",
-"What if I kept proving my love hoping you would match it?",
-"What if you never planned to?",
-"What if I was holding onto your words instead of your actions?",
-"What if the truth was in what you didn’t do?",
-"What if I was the only one afraid to lose us?",
-"What if you were never afraid at all?",
-"What if I blamed myself for your lack of effort?",
-"What if I thought being patient meant being strong?",
-"What if it just meant I was hurting quietly?",
-"What if I loved you louder than you ever loved me?",
-"What if you never intended to stay through the hard parts?",
-"What if I would have?",
-"What if I lost myself trying to keep you?",
-"What if I find myself after losing you?",
-"What if walking away hurts now but saves me later?",
-"What if this heartbreak is protection?",
-"What if I finally choose me?"
-];
-
-function newJoke() {
-    const randomIndex = Math.floor(Math.random() * jokes.length);
-    document.getElementById("jokeBox").innerText = jokes[randomIndex];
-}
-
-</script>
-
+        function showQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('quote').innerText = quotes[randomIndex];
+        }
+    </script>
 </body>
 </html>
